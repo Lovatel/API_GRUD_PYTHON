@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD API - Add Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Add Product</h1>
+
+            <form action="{{ url_for('add_product') }}" method="POST">
+                <div class="field">
+                    <label class="label" for="nome">Name:</label>
+                    <div class="control">
+                        <input class="input" type="text" id="nome" name="nome" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="rg">RG:</label>
+                    <div class="control">
+                        <input class="input" type="text" id="rg" name="rg" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="cpf">CPF:</label>
+                    <div class="control">
+                        <input class="input" type="text" id="cpf" name="cpf" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="data_nascimento">Date of Birth:</label>
+                    <div class="control">
+                        <input class="input" type="date" id="data_nascimento" name="data_nascimento" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="data_admissao">Date of Admission:</label>
+                    <div class="control">
+                        <input class="input" type="date" id="data_admissao" name="data_admissao" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="button is-primary" type="submit" value="Add">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
+

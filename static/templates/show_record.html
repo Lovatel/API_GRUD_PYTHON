@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD API - Selected Record</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Selected Record</h1>
+
+            <table class="table is-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>RG</th>
+                        <th>CPF</th>
+                        <th>Date of Birth</th>
+                        <th>Date of Admission</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ record["nome"] }}</td>
+                        <td>{{ record["rg"] }}</td>
+                        <td>{{ record["cpf"] }}</td>
+                        <td>{{ record["data_nascimento"] }}</td>
+                        <td>{{ record["data_admissao"] }}</td>
+                        <td>
+                            <a class="button is-primary" href="{{ url_for('edit_record', id=record['id_pessoa']) }}">Edit</a>
+                            <form action="{{ url_for('delete_record', id=record['id_pessoa']) }}" method="POST" class="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="button is-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>
